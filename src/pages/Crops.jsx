@@ -1,7 +1,11 @@
+import CropSelection from "../components/CropSelection"
+
 function Crops()
 {
     return(
-        <h1>पिके</h1>
+      <main>
+            <CropSelection/>
+      </main>
     )
 }
 
