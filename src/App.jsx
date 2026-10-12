@@ -1,19 +1,22 @@
-import { useEffect, useState } from "react"
 import "./App.css"
-import Navbar from "./Components/Navbar";
+import Navbar from "./components/Navbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Crops from "./pages/Crops";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 function App() {
-
-
-
-  const [count, setCount] = useState(0);
   return (
     <>
-    
-      <Navbar/>
-      
-      <main className="min-h-screen bg-white">
-
-      </main>
+    <BrowserRouter>
+    <Navbar/>
+    <Routes>
+      <Route path="/" element={<Home />}/>
+      <Route path="/crops" element={<Crops/>}/>
+      <Route path="/about" element={<About/>}/>
+      <Route path="/contact" element={<Contact/>}/>
+    </Routes>
+    </BrowserRouter>
     </>
   )
 }
