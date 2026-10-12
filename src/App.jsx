@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Crops from "./pages/Crops";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import CropDetails from "./pages/CropDetails";
 function App() {
   return (
     <>
@@ -12,6 +13,7 @@ function App() {
     <Navbar/>
     <Routes>
       <Route path="/" element={<Home />}/>
+      <Route path="/crops/:slug" element={<CropDetails/>} />
       <Route path="/crops" element={<Crops/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/contact" element={<Contact/>}/>

@@ -4,36 +4,42 @@ const crops = [
   {
     id: 1,
     name: "कापूस",
+    slug : "cotton",
     category: "मुख्य पीक",
     image: "/images/crops/cotton.jpg",
   },
   {
     id: 2,
     name: "केळी",
+    slug : "banana",
     category: "फळ पीक",
     image: "/images/crops/banana.jpg",
   },
   {
     id: 3,
     name: "मका",
+    slug : "maize",
     category: "धान्य",
     image: "/images/crops/maize.jpg",
   },
   {
     id: 4,
     name: "ज्वारी",
+    slug : "sorghum",
     category: "धान्य",
     image: "/images/crops/jowar.jpg",
   },
   {
     id: 5,
     name: "बाजरी",
+    slug : "pearl-millet",
     category: "धान्य",
     image: "/images/crops/bajra.jpg",
   },
   {
     id: 6,
     name: "पपई",
+    slug : "papaya",
     category: "फळ पीक",
     image: "/images/crops/papaya.jpg",
     
@@ -41,6 +47,7 @@ const crops = [
   {
     id: 7,
     name: "कलिंगड",
+    slug : "watermelon",
     category: "फळ पीक",
     image: "/images/crops/watermelon.jpg",
     
@@ -96,7 +103,7 @@ const CropSelection = () => {
                 </h3>
 
                 <Link
-                  to={`/crops/${crop.id}`}
+                  to={`/crops/${crop.slug}`}
                   className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
                 >
                   माहिती पहा
