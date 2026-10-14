@@ -3,6 +3,9 @@ import { guidanceData } from "../data/guidenceData";
 import { Link, useParams } from "react-router-dom";
 import AvailableVarities from "../components/AvailableVarieties"
 import products from "../data/productsData"
+import problemsData from "../data/problemsData";
+import DiseaseSection from "../components/DiseaseSection";
+
 const cropData = {
     banana: {
         name: "केळी",
@@ -62,7 +65,16 @@ function CropDetails() {
     const crop = cropData[slug];
     const stages = guidanceData[slug] || [];
 
-    const cropProducts = products.filter((product)=>product.cropSlugs.includes(slug));
+    const cropProducts = products.filter((product) => product.cropSlugs.includes(slug));
+
+    const cropProblems = (problemsData[slug] || []).map((problem) => ({
+        ...problem,
+        products: (problem.productIds || [])
+            .map((productId) =>
+                products.find((product) => product.id === productId)
+            )
+            .filter(Boolean),
+    }));
 
     if (!crop) {
         return (
@@ -147,6 +159,10 @@ function CropDetails() {
                 <section className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
                     <AvailableVarities products={cropProducts} />
                 </section>
+
+                <section className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+                    <DiseaseSection problems = {cropProblems}/>
+                </section>  
 
             </section>
         </main>
